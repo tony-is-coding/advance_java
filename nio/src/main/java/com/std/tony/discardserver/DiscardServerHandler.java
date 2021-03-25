@@ -18,10 +18,10 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
                 System.out.println((char) in.readByte());
                 System.out.flush();
             }
-
         } finally {
             ReferenceCountUtil.release(msg);
         }
+
     }
 
     @Override

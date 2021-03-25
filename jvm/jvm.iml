@@ -11,6 +11,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="annotation" />
+    <orderEntry type="module" module-name="concurrent" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.53.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.55.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.55.Final" level="project" />
