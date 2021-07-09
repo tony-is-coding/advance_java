@@ -16,6 +16,7 @@
         <module>stringify</module>
         <module>zookeeper</module>
         <module>annotation</module>
+        <module>amqp</module>
     </modules>
     <dependencies>
         <dependency>
