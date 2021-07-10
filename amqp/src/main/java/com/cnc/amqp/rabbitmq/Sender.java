@@ -1,26 +1,37 @@
 package com.cnc.amqp.rabbitmq;
 
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Logger;
+
+import static com.cnc.amqp.rabbitmq.Config.*;
+
 
 public class Sender {
+    private static final Logger log = Logger.getLogger(Sender.class.getName());
+
     public static void main(String[] args) {
+        initial();
+        final byte[] sendMsg = "send a message to you".getBytes();
 
         try {
             Connection connection = Config.getConnection();
-            Channel ch = connection.createChannel();
-            ch.basicConsume(Config.queue, true, new DefaultConsumer(ch) {
-                @Override
-                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    super.handleDelivery(consumerTag, envelope, properties, body);
-                }
+            Channel channel = connection.createChannel();
+            channel.addReturnListener((replyCode, replyText, exchange, routingKey, properties, body) -> {
+                log.info("消息未被正确的路由到: " + new String(body));
             });
+            AMQP.BasicProperties properties = new AMQP.BasicProperties.Builder()
+                    .deliveryMode(2) // 消息持久化
+                    .build();
+            channel.basicPublish(exchange, bindingKey, properties, sendMsg);
+
         } catch (IOException | TimeoutException e) {
-            System.out.println("连接错误: " + e.getMessage());
-            return;
+            log.info("连接错误: " + e.getMessage());
         }
     }
 }
