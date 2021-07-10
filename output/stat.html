@@ -1,0 +1,64 @@
+--- Execution profile ---
+Total samples       : 7056
+
+          ns  percent  samples  top
+  ----------  -------  -------  ---
+  4398597000   62.40%     4403  write
+   346653000    4.92%      347  ThreadStateTransition::trans_from_native(JavaThreadState)
+   272727000    3.87%      273  ThreadStateTransition::trans_and_fence(JavaThreadState, JavaThreadState)
+   192807000    2.74%      193  java.io.FileOutputStream.writeBytes
+   132867000    1.88%      133  java.io.BufferedOutputStream.flush
+   120879000    1.71%      121  java.io.BufferedWriter.write
+    99900000    1.42%      100  java.lang.Integer.toString
+    92907000    1.32%       93  writeBytes
+    90909000    1.29%       91  sun.nio.cs.UTF_8$Encoder.encodeLoop
+    89910000    1.28%       90  jni_GetObjectField
+    87912000    1.25%       88  sun.nio.cs.UTF_8$Encoder.encodeArrayLoop
+    85914000    1.22%       86  java.io.PrintStream.write
+    84915000    1.20%       85  __psynch_cvwait
+    84915000    1.20%       85  HandleMarkCleaner::~HandleMarkCleaner()
+    78921000    1.12%       79  java.io.FileOutputStream.write
+    72927000    1.03%       73  sun.nio.cs.StreamEncoder.flushBuffer
+    72927000    1.03%       73  java.io.PrintStream.println
+    69930000    0.99%       70  java.io.BufferedWriter.flushBuffer
+    64935000    0.92%       65  java.io.PrintStream.newLine
+    51948000    0.74%       52  jni_GetByteArrayRegion
+    39960000    0.57%       40  jni_GetArrayLength
+    39960000    0.57%       40  sun.nio.cs.StreamEncoder.write
+    38961000    0.55%       39  handleWrite
+    34965000    0.50%       35  JavaThread::thread_from_jni_environment(JNIEnv_*)
+    32967000    0.47%       33  JNIHandleBlock::allocate_handle(oopDesc*)
+    30969000    0.44%       31  java.io.BufferedOutputStream.write
+    28971000    0.41%       29  java.lang.String.indexOf
+    23976000    0.34%       24  com.cnc.profiler.asyncprofiler.AsyncProfilerTest.methodOne
+    22977000    0.33%       23  jshort_disjoint_arraycopy
+    21978000    0.31%       22  java.io.OutputStreamWriter.flushBuffer
+    18981000    0.27%       19  Java_java_io_FileOutputStream_writeBytes
+    15984000    0.23%       16  java.io.BufferedOutputStream.flushBuffer
+    15984000    0.23%       16  jni_ExceptionOccurred
+    15984000    0.23%       16  JNIHandles::make_local(JNIEnv_*, oopDesc*)
+    10989000    0.16%       11  JavaThread::check_and_handle_async_exceptions(bool)
+     8991000    0.13%        9  _platform_memmove$VARIANT$Haswell
+     7992000    0.11%        8  jbyte_disjoint_arraycopy
+     6993000    0.10%        7  java.nio.charset.CharsetEncoder.encode
+     6993000    0.10%        7  jshort_arraycopy
+     3996000    0.06%        4  jsqrt
+     2997000    0.04%        3  jbyte_arraycopy
+     2997000    0.04%        3  StringTable::buckets_unlink_or_oops_do(BoolObjectClosure*, OopClosure*, int, int, BasicHashtable<(MemoryType)9>::BucketUnlinkContext*)
+     1998000    0.03%        2  _os_semaphore_wait.cold.1
+     1998000    0.03%        2  java.io.OutputStreamWriter.write
+     1998000    0.03%        2  __psynch_cvsignal
+     1998000    0.03%        2  ParallelTaskTerminator::offer_termination(TerminatorTerminator*)
+      999000    0.01%        1  java.lang.Thread.sleep
+      999000    0.01%        1  java.lang.String.valueOf
+      999000    0.01%        1  YieldingFlexibleGangWorker::~YieldingFlexibleGangWorker()
+      999000    0.01%        1  MutableSpace::used_in_words() const
+      999000    0.01%        1  oopDesc::size()
+      999000    0.01%        1  pthread_cond_timedwait
+      999000    0.01%        1  si_module_with_name.modules
+      999000    0.01%        1  OptoRuntime::new_instance_C(Klass*, JavaThread*)
+      999000    0.01%        1  PSScavengeKlassClosure::do_klass(Klass*)
+      999000    0.01%        1  frame::oops_interpreted_do(OopClosure*, CLDClosure*, RegisterMap const*, bool)
+      999000    0.01%        1  __write_nocancel
+      999000    0.01%        1  GCCauseString::GCCauseString(char const*, GCCause::Cause)
+      999000    0.01%        1  CollectedHeap::fill_with_object(HeapWord*, unsigned long, bool)
