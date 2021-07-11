@@ -53,6 +53,7 @@ public class Config {
 
 
             channel.queueBind(queue, exchange, bindingKey);
+            channel.queueBind(queue, exchange, bindingKey + "xxxx");
             log.info("初始化交换机-队列完成...");
             channel.close();
             connection.close();
@@ -71,6 +72,10 @@ public class Config {
         factory.setUsername(username);
         factory.setPassword(password);
         return factory.newConnection();
+    }
+
+    public static void main(String[] args) {
+        initial();
     }
 
 }

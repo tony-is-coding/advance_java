@@ -15,15 +15,27 @@ public class Receiver {
             Connection connection = Config.getConnection();
             Channel channel = connection.createChannel();
 
-            log.info("消费者开始监听消息...");
+            Channel channel1 = connection.createChannel();
+            Channel channel2 = connection.createChannel();
+
+            log.info("消费者一开始监听消息...");
             channel.basicConsume(Config.queue, new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    log.info("收到一条消息, 消息内容是:" + new String(body) + ", 时间:" + System.currentTimeMillis());
-                    log.info("拒绝本次消息...");
-                    channel.basicReject(envelope.getDeliveryTag(), false);
+                    log.info("执行线程:" + Thread.currentThread().getName() + " 消费者一收到一条消息, 消息内容是:" + new String(body) + ", 时间:" + System.currentTimeMillis());
                 }
             });
+
+
+            log.info("消费者二开始监听消息...");
+            channel.basicConsume(Config.queue, new DefaultConsumer(channel) {
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    log.info("执行线程:" + Thread.currentThread().getName() + "消费者二收到一条消息, 消息内容是:" + new String(body) + ", 时间:" + System.currentTimeMillis());
+                }
+            });
+
+
         } catch (IOException | TimeoutException exception) {
             exception.printStackTrace();
         }

@@ -45,7 +45,7 @@ public class AsyncPublishConfirm {
             AMQP.BasicProperties properties = new AMQP.BasicProperties.Builder()
                     .deliveryMode(2) // 消息持久化
                     .build();
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 20; i++) {
                 long deliveryTag = channel.getNextPublishSeqNo();
                 channel.basicPublish(exchange, bindingKey, properties, sendMsg);
                 confirmSet.add(deliveryTag);
