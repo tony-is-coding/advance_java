@@ -17,6 +17,7 @@
         <module>zookeeper</module>
         <module>annotation</module>
         <module>amqp</module>
+        <module>spring-data-jpa-demo</module>
     </modules>
     <dependencies>
         <dependency>

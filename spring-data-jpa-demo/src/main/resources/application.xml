@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa https://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 配置包扫描 -->
+    <context:component-scan base-package="com.cnc.jpa.demo"/>
+
+    <!-- 配置Druid -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC"/>
+        <property name="username" value="root"/>
+        <property name="password" value="admin123"/>
+    </bean>
+
+
+    <!-- 配置EntityManager -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+        <!-- [1] 配置DataSource -->
+        <property name="dataSource" ref="dataSource"/>
+
+        <!-- [2] 配置实体类所在分包 -->
+        <property name="packagesToScan" value="com.cnc.jpa.demo.entity"/>
+
+        <!--
+            [3] 配置JPA适配器
+            问题：为什么需要配置JPA适配器？
+            答：JPA是一种标准，基于JPA这个标准有很多实现框架，因此我们需要通过JPA适配器指定使用的是哪一种JPA实现
+                在这里，使用hibernate-JPA，即配置HibernateJpaVendorAdapter这个适配器
+         -->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+
+        <!-- [4] 配置JPA框架的属性 -->
+        <property name="jpaProperties">
+            <props>
+                <!-- 指定数据库方言，可无需配置，框架运行会自动识别 -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <!-- 指定SQL语句是否显示 -->
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- 指定SQL语句是否格式化 -->
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 指定hibernate的自动更新功能 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 整合Spring-data-jpa -->
+    <jpa:repositories base-package="com.cnc.jpa.demo.dao" entity-manager-factory-ref="entityManagerFactory"/>
+
+
+    <!-- 配置TransactionManager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />      <!-- 启动编程式事务 -->
+
+
+
+</beans>
