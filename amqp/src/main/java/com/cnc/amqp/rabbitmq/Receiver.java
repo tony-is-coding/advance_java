@@ -24,6 +24,7 @@ public class Receiver {
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     log.info("执行线程:" + Thread.currentThread().getName() + " 消费者一收到一条消息, 消息内容是:" + new String(body) + ", 时间:" + System.currentTimeMillis());
                 }
+
             });
 
 

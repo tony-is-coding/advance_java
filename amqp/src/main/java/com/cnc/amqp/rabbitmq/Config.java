@@ -46,6 +46,7 @@ public class Config {
 //            channel.exchangeDeclare(DLXExchange, BuiltinExchangeType.DIRECT, false);
 //            channel.queueDeclare(DLXQueue, true, false, true, new HashMap<>());
 
+
             channel.queueDeclare(queue, true, false, false, new HashMap<>());
 //            channel.queueBind(DLXQueue, DLXExchange, DLXBindingKey);
 
@@ -53,7 +54,6 @@ public class Config {
 
 
             channel.queueBind(queue, exchange, bindingKey);
-            channel.queueBind(queue, exchange, bindingKey + "xxxx");
             log.info("初始化交换机-队列完成...");
             channel.close();
             connection.close();
@@ -61,7 +61,6 @@ public class Config {
             log.warning("初始化错误:" + exception.getMessage());
             exception.printStackTrace();
         }
-
     }
 
 
