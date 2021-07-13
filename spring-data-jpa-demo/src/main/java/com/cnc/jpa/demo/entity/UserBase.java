@@ -10,7 +10,7 @@ public class UserBase implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "c_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "name")

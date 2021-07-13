@@ -43,7 +43,7 @@
         <property name="jpaProperties">
             <props>
                 <!-- 指定数据库方言，可无需配置，框架运行会自动识别 -->
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
                 <!-- 指定SQL语句是否显示 -->
                 <prop key="hibernate.show_sql">true</prop>
                 <!-- 指定SQL语句是否格式化 -->

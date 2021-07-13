@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
-    <facet type="web" name="Web">
-      <configuration>
-        <webroots />
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </sourceRoots>
-      </configuration>
-    </facet>
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="entityManagerFactory" />
           <factory-entry name="spring-data-jpa-demo" />
         </datasource-mapping>
         <naming-strategy-map />
@@ -22,8 +14,8 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Mvc" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/spring-mvc.xml</file>
+        <fileset id="fileset" name="Application" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/application.xml</file>
         </fileset>
       </configuration>
     </facet>
