@@ -13,6 +13,7 @@
     </properties>
 
     <artifactId>amqp</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.rabbitmq</groupId>
