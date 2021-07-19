@@ -1,32 +1,25 @@
 package com.cnc.spring.amqp.rabbitmq.config;
 
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Exchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
 /**
- * @desc TODO
- *
  * @author tony
+ * @desc TODO
  * @createDate 2021/7/17 8:39 下午
  */
 @Configuration
 public class Redirect {
 
-    @Value()
     private String queue;
 
-    @Value()
     private String exchange;
 
-    @Value()
     private String routingKey;
 
-    @Value()
     private String bindingKey;
 
 
@@ -36,10 +29,13 @@ public class Redirect {
     }
 
     @Bean
-    public Exchange vacationExchange() {
+    public DirectExchange vacationExchange() {
         return new DirectExchange(exchange);
     }
 
-
+    @Bean
+    public Binding vacationExchangeQueueBind(Queue vacationQueue, DirectExchange vacationExchange) {
+        return BindingBuilder.bind(vacationQueue).to(vacationExchange).with(bindingKey);
+    }
 
 }
