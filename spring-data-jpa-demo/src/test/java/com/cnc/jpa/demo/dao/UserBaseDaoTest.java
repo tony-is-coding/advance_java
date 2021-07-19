@@ -3,8 +3,10 @@ package com.cnc.jpa.demo.dao;
 import com.cnc.jpa.demo.entity.UserBase;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.orm.jpa.JpaTransactionManager;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 
 public class UserBaseDaoTest {
@@ -13,12 +15,22 @@ public class UserBaseDaoTest {
     @Test
     public void testFindAll() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        UserBaseDAO userBaseDAO = (UserBaseDAO) context.getBean("userBaseDAO");
+//        UserBaseDAO userBaseDAO = (UserBaseDAO) context.getBean("userBaseDAO");
+        JpaTransactionManager transactionManager = (JpaTransactionManager) context.getBean("transactionManager");
         try {
-            List<UserBase> userBases = userBaseDAO.findAll();
-            for(UserBase userBase:userBases){
-                System.out.println("第" + userBase.getId() + "号学生, 名字叫: " + userBase.getName());
-            }
+            EntityManager manager = transactionManager.getEntityManagerFactory().createEntityManager();
+            EntityTransaction transaction = manager.getTransaction();
+            UserBase userBase = new UserBase();
+//            userBase.setId(1);
+            userBase.setAddr("深圳市宝安区劳动二队");
+            userBase.setAge(25);
+            userBase.setEmail("2318930092@qq.com");
+            userBase.setMobile("13421843857");
+            userBase.setName("tony tan");
+            transaction.begin();
+            manager.persist(userBase);
+            transaction.commit();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
