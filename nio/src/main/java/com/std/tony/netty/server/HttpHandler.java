@@ -9,7 +9,7 @@ import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
 
-@Slf4j
+
 public class HttpHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
@@ -38,7 +38,6 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
             response.headers().set("Content-Type", "application/json");
             response.headers().setInt("Content-Length", response.content().readableBytes());
         } catch (Exception e) {
-            log.error("处理测试接口报错");
             e.printStackTrace();
         } finally {
             if (request != null) {

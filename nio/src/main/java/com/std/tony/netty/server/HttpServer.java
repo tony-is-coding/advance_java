@@ -48,7 +48,7 @@ public class HttpServer {
                     .handler(new LoggingHandler(LogLevel.INFO)).childHandler(new HttpInitializer(sslCtx));
 
             Channel ch = b.bind(port).sync().channel();
-            log.info("监听地址: http://127.0.0.1:" + port + "/");
+            System.out.println("监听地址: http://127.0.0.1:" + port + "/");
             ch.closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();

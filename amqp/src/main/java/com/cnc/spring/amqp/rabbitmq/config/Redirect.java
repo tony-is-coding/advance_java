@@ -2,6 +2,8 @@ package com.cnc.spring.amqp.rabbitmq.config;
 
 import org.springframework.amqp.core.*;
 
+import org.springframework.beans.factory.config.Scope;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
