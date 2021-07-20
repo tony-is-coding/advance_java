@@ -1,6 +1,5 @@
 package com.std.zk;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorListener;
@@ -10,7 +9,6 @@ import org.apache.curator.framework.api.CuratorListener;
  * @desc TODO
  * @createDate 2021/3/12 3:40 下午
  */
-@Slf4j
 public class IdentifyListener implements CuratorListener {
 
     @Override
@@ -28,7 +26,6 @@ public class IdentifyListener implements CuratorListener {
                     break;
             }
         } catch (Exception e) {
-            log.info(e.toString());
             try {
                 client.close();
             } catch (Exception e2) {

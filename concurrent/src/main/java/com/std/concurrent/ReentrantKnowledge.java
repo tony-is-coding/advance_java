@@ -1,9 +1,9 @@
 package com.std.concurrent;
 
-import sun.misc.Lock;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 public class ReentrantKnowledge {
     private static int reentrantInteger = 0;
@@ -43,7 +43,7 @@ public class ReentrantKnowledge {
     }
 
     public void inReentrant() throws InterruptedException {
-        Lock lock = new Lock();
+        Lock lock = new ReentrantLock();
         lock.lock();
         for (int j = 0; j < 20; j++) {
             try {

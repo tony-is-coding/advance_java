@@ -1,14 +1,11 @@
 package com.std.tony.handler_invoke_order_test;
 
-import com.std.tony.echo.EchoServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
 
@@ -18,7 +15,6 @@ import java.net.InetSocketAddress;
  * @desc TODO
  * @createDate 2021/3/24 12:27 下午
  */
-@Slf4j
 public class Server {
 
     public void run(int port) throws InterruptedException {

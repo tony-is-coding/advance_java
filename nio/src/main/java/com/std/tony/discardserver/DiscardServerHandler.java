@@ -5,8 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 
-import java.nio.ByteBuffer;
-
 // channelInBoundHandler 处理输入的数据
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
     @Override

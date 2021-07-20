@@ -3,14 +3,12 @@ package com.std.tony.handler_invoke_order_test;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author tony
  * @desc TODO
  * @createDate 2021/3/24 2:40 下午
  */
-@Slf4j
 public class ServerBusinessHandler2 extends ChannelOutboundHandlerAdapter {
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {

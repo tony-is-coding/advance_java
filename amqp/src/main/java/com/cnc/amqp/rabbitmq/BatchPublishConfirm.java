@@ -11,7 +11,8 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-import static com.cnc.amqp.rabbitmq.Config.*;
+import static com.cnc.amqp.rabbitmq.Config.bindingKey;
+import static com.cnc.amqp.rabbitmq.Config.exchange;
 
 // 批量进行发布消息确认, 减轻每次发送等待确认压力, 提升吞吐量
 public class BatchPublishConfirm {

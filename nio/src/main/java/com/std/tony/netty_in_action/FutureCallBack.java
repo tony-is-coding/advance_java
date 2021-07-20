@@ -2,7 +2,6 @@ package com.std.tony.netty_in_action;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.sctp.nio.NioSctpChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.net.InetSocketAddress;

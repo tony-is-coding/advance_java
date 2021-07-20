@@ -3,8 +3,6 @@ package com.std.tony.echo;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-import java.util.concurrent.ScheduledExecutorService;
-
 // channelInBoundHandler 处理输入的数据
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 

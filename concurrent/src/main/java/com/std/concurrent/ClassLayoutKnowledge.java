@@ -1,9 +1,5 @@
 package com.std.concurrent;
 
-import org.openjdk.jol.info.ClassLayout;
-
-import java.util.HashMap;
-
 public class ClassLayoutKnowledge {
     private int age;
     private String name;

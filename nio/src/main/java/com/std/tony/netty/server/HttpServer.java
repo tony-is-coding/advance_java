@@ -10,10 +10,8 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
-import lombok.extern.slf4j.Slf4j;
 
 
-@Slf4j
 public class HttpServer {
     private boolean ssl;
     private int port;

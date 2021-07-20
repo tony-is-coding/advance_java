@@ -7,7 +7,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
 
 @ChannelHandler.Sharable
 public class EchoServer {
