@@ -1,5 +1,7 @@
 package com.cnc.myspringboot.beans;
 
+import org.springframework.stereotype.Service;
+
 public class TestBeanOne {
 
     private String name;
