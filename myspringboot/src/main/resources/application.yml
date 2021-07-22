@@ -4,5 +4,10 @@ server:
 spring:
   application:
     name: my-springboot-app
+  profiles:
+    active: test
 
-
+logging:
+  level:
+    root: "warn"
+    org.springframework.*: "info"
