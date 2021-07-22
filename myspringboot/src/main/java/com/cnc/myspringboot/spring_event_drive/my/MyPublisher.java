@@ -7,18 +7,19 @@ import com.cnc.myspringboot.spring_event_drive.my.core.Publisher;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MyPublisher<T extends Event> implements Publisher {
-    private final Set<Listener<T>> listeners = new HashSet<>();
+public class MyPublisher implements Publisher {
+    private final Set<Listener<Event>> listeners = new HashSet<>();
 
     @Override
     public void publish(Event event) {
-        for (Listener<T> listener : listeners) {
-            listener.onEventHappened((T) event);
+        for (Listener<Event> listener : listeners) {
+            listener.onEventHappened(event);
         }
     }
 
     @Override
-    public void addListener(Listener<Event> listener) {
-        listeners.add((Listener<T>) listener);
+    @SuppressWarnings("unchecked")
+    public <T extends Event> void addListener(Listener<T> listener) {
+        listeners.add((Listener<Event>) listener);
     }
 }

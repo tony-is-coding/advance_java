@@ -7,6 +7,6 @@ public class Starter {
 
         MyEmailService service = new MyEmailService();
         service.setEventPublisher(myPublisher);
-        service.sendEmail("hello", "this is tony");
+        service.sendEmail("james", "this is tony");
     }
 }

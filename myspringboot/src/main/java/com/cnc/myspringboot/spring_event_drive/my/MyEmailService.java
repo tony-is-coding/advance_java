@@ -18,7 +18,7 @@ public class MyEmailService {
             publisher.publish(new MyBlockedEmailListEvent(address, content)); // 邮箱冻结处理事件
             return;
         }
-        System.out.println("xxxxx");
+        System.out.printf("send a email to [%s], email content is: [%s]", address, content);
         // send email...
     }
 }

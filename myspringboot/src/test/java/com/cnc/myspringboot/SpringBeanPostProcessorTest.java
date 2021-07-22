@@ -1,18 +1,17 @@
 package com.cnc.myspringboot;
 
 import com.cnc.myspringboot.configscan.SpringAppConfig;
-import com.cnc.myspringboot.spring_event_drive.EmailService;
+import com.cnc.myspringboot.container_extension.MyBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class SpringEventDriveTest {
-    @Test
-    public void testPublishEmailEvent() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+public class SpringBeanPostProcessorTest {
 
-        EmailService emailService = new EmailService();
-        emailService.setApplicationEventPublisher(context);
-        emailService.sendEmail("tony", "hello this is tony!!!");
+    @Test
+    public void testProcessor() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+        context.getBean(MyBean.class);
+
     }
 }

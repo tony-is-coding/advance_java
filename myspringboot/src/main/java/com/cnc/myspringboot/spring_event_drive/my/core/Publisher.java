@@ -3,5 +3,5 @@ package com.cnc.myspringboot.spring_event_drive.my.core;
 public interface Publisher {
     void publish(Event event);
 
-    void addListener(Listener<Event> listener);
+    <T extends Event> void addListener(Listener<T> listener);
 }

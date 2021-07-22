@@ -8,7 +8,7 @@ public class BlockEmailListNotifier implements ApplicationListener<BlockedEmailL
 
     @Override
     public void onApplicationEvent(BlockedEmailListEvent event) {
-        System.out.println("received a block email event!!!");
-        System.out.printf("email [%s] is in block email list, the content: [%s] . may not be send!!!", event.getAddress(), event.getContent());
+        System.out.println("\n\n\n received a block email event!!!");
+        System.out.printf("email [%s] is in block email list, the content: [%s] . may not be send!!! \n\n\n", event.getAddress(), event.getContent());
     }
 }
