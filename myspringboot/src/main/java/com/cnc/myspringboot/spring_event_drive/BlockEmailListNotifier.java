@@ -1,9 +1,8 @@
 package com.cnc.myspringboot.spring_event_drive;
 
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class BlockEmailListNotifier implements ApplicationListener<BlockedEmailListEvent> {
 
     @Override

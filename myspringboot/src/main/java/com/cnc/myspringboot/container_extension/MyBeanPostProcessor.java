@@ -2,9 +2,8 @@ package com.cnc.myspringboot.container_extension;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
 

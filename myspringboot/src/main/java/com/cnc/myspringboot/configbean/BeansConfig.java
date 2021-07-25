@@ -1,8 +1,12 @@
 package com.cnc.myspringboot.configbean;
 
 import com.cnc.myspringboot.beans.*;
-import org.springframework.context.annotation.*;
-import org.springframework.lang.Nullable;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+import java.time.LocalDateTime;
 
 @Configuration
 @ComponentScans(value = {})
@@ -46,4 +50,9 @@ public class BeansConfig {
         return new ParamGreediestBean("one");
     }
 
+    @Bean
+    public DateTimeFormatterBean dateTimeFormatterBean() {
+        LocalDateTime now = LocalDateTime.now();
+        return new DateTimeFormatterBean(now.toLocalDate(), now, now.toLocalTime());
+    }
 }
