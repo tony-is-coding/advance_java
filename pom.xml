@@ -18,7 +18,7 @@
         <module>amqp</module>
         <module>spring-data-jpa-demo</module>
         <module>spring-beans-basic</module>
-        <module>myspringboot</module>
+        <module>myspring</module>
     </modules>
     <dependencies>
         <dependency>
