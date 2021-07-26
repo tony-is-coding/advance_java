@@ -1,10 +1,7 @@
-package com.cnc.spring.amqp.rabbitmq;
+package com.cnc.my.spring.spring_amqp;
 
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Message;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @author tony
@@ -13,8 +10,11 @@ import org.springframework.stereotype.Service;
  */
 @Component
 public class Sender {
-    @Autowired
-    AmqpTemplate amqpTemplate;
+    final AmqpTemplate amqpTemplate;
+
+    public Sender(AmqpTemplate amqpTemplate) {
+        this.amqpTemplate = amqpTemplate;
+    }
 
     public void sendToVacation(String routingKey, String message) {
         amqpTemplate.convertAndSend(routingKey, message);

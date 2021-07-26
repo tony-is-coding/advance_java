@@ -1,5 +1,6 @@
 package com.cnc.my.spring.da.transaction.spring_transaction.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -14,12 +15,24 @@ public class TransactionalConfig {
 
     @Bean
     public DataSource dataSource() {
-        return null;
+        DruidDataSource ds = new DruidDataSource();
+        ds.setUrl("jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC");
+        ds.setUsername("root");
+        ds.setPassword("admin123");
+        ds.setMaxActive(20);
+        ds.setInitialSize(1);
+        ds.setMaxWait(60 * 1000);
+        ds.setMinIdle(1);
+        ds.setPoolPreparedStatements(true);
+        ds.setMaxPoolPreparedStatementPerConnectionSize(20);
+
+        return ds;
     }
 
     @Bean
     public PlatformTransactionManager platformTransactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
+
 
 }
