@@ -54,11 +54,11 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-<!--  ************** 基于注解的事务配置 *************  -->
-
+    <!--  ************** 基于注解的事务配置 *************  -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 <!--  ************** 基于xml的事务配置 *************  -->
+<!--   基于xml配置的事务模式核心思想就是给予SpringAOP或者AspectJ的面向切面编程感知  -->
     <!-- 配置事务增强 -->
 <!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
 <!--        <tx:attributes>-->

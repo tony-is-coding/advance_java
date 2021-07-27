@@ -21,4 +21,12 @@ public class SpringAnnotationBasedTransactionTest {
     public void testTransfer() {
         accountService.transfer(2, 1, BigDecimal.valueOf(50));
     }
+
+    /**
+     * TODO:
+     * 1. 测试事务隔离级别关系
+     * 2. 测试只读事务作用
+     * 3. 测试事务读写异常: 脏读、不可重复读、幻读
+     */
+
 }
