@@ -5,6 +5,7 @@
       <configuration>
         <fileset id="fileset" name="TransactionalConfig" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/cnc/my/spring/da/transaction/spring_transaction/config/TransactionalConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/applicationcontext.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -28,7 +29,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.7" level="project" />
@@ -38,6 +39,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.2.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
