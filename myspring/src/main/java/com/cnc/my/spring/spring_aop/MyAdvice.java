@@ -1,6 +1,8 @@
 package com.cnc.my.spring.spring_aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -33,13 +35,13 @@ public class MyAdvice {
 //        System.out.println("method has already finished...");
 //    }
 //
-//    @Around("com.cnc.myspringboot.spring_aop.MyPointcut.publicInPackage()")
-//    public Object aroundBark(ProceedingJoinPoint o) throws Throwable {
-//        System.out.println("around before bark!!!! ");
-//        Object ret = o.proceed();
-//        System.out.println("around after bark!!!! ");
-//        return ret;
-//    }
+    @Around("com.cnc.my.spring.spring_aop.MyPointcut.publicInPackage()")
+    public Object aroundBark(ProceedingJoinPoint o) throws Throwable {
+        System.out.println("around before bark!!!! ");
+        Object ret = o.proceed();
+        System.out.println("around after bark!!!! ");
+        return ret;
+    }
 
 
 }
