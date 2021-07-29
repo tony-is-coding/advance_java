@@ -2,7 +2,9 @@ package com.cnc.my.spring.da.transaction.spring_transaction.entity;
 
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Table;
 
+@Table(name = "t_user_base")
 public class UserBase {
     private Integer id;
     private String name;

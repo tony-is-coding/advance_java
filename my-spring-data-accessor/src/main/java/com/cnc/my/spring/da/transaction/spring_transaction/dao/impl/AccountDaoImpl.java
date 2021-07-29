@@ -3,7 +3,6 @@ package com.cnc.my.spring.da.transaction.spring_transaction.dao.impl;
 import com.cnc.my.spring.da.transaction.spring_transaction.dao.AccountDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -20,7 +19,6 @@ public class AccountDaoImpl implements AccountDao {
      */
 //    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 //    private SqlParameterSource sqlParameterSource;
-
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);

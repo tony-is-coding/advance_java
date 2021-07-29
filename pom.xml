@@ -20,6 +20,8 @@
         <module>spring-beans-basic</module>
         <module>myspring</module>
         <module>my-spring-data-accessor</module>
+        <module>spring-mvc</module>
+        <module>my-spring-mvc</module>
     </modules>
     <dependencies>
         <dependency>

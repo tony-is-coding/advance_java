@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
@@ -35,5 +37,21 @@ public class TransactionalConfig {
     public PlatformTransactionManager platformTransactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
+
+    // Hibernate 5.x 系列配置
+//    @Bean
+//    public LocalSessionFactoryBean sessionFactoryBean() {
+//        LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
+//        bean.setDataSource(dataSource());
+//        bean.setMappingResources("hibernate.mapping.resource.xml");
+//        Properties properties = new Properties();
+//        properties.setProperty("hibernate.dialect", "org.hibernate.MySQL57Dialect");
+//        bean.setHibernateProperties(properties);
+//        return bean;
+//    }
+//    @Bean
+//    public EntityManagerFactory entityManagerFactory(){
+//        return new LocalEntityManagerFactoryBean();
+//    }
 
 }
