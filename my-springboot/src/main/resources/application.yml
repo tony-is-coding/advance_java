@@ -58,7 +58,12 @@ custom:
               binding-key: "com.cnc.rabbit.binding.my-queue2-to-my-exchange"
               auto-delete: false
               durable: true
+      ot-convert:
+        queue: com.cnc.rabbit.queue.my-queue1
+        exchange: com.cnc.rabbit.exchange.my-exchange1
+        # 以下可选的消息 参数
+      month-attendance:
+        queue: com.cnc.rabbit.queue.my-queue2
+        exchange: com.cnc.rabbit.exchange.my-exchange1
+        # 以下可选的消息 参数
 
-  rpc:
-    host: 127.0.0.1
-    port: 9000
