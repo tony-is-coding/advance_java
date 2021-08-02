@@ -14,6 +14,8 @@ public class SenderTest {
     @Test
     public void testSender() {
         Sender sender = context.getBean(Sender.class);
-        sender.sendToVacation(RabbitClientConfiguration.queue, "hello world");
+        for (int i = 0; i < 10; i++) {
+            sender.sendToVacation(RabbitClientConfiguration.queue, "hello world");
+        }
     }
 }
