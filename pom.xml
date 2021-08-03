@@ -22,6 +22,8 @@
         <module>my-spring-data-accessor</module>
         <module>my-spring-mvc</module>
         <module>my-springboot</module>
+        <module>mybatis</module>
+        <module>my-mybatis</module>
     </modules>
     <dependencies>
         <dependency>
