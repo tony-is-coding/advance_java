@@ -24,6 +24,8 @@
         <module>my-springboot</module>
         <module>mybatis</module>
         <module>my-mybatis</module>
+        <module>my-mybatis-plus</module>
+        <module>boot-testing</module>
     </modules>
     <dependencies>
         <dependency>

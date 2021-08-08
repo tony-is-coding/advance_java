@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace:命名空间,做sql隔离 -->
 <mapper namespace="com.cnc.my.mybatis.mapper.AccountMapper">
+    <!--  启用缓存  -->
+    <cache/>
 
     <!--
     id:sql语句唯一标识
