@@ -22,10 +22,11 @@
         <module>my-spring-data-accessor</module>
         <module>my-spring-mvc</module>
         <module>my-springboot</module>
-        <module>mybatis</module>
         <module>my-mybatis</module>
         <module>my-mybatis-plus</module>
         <module>boot-testing</module>
+        <module>my-dubbo</module>
+        <module>my-pattern</module>
     </modules>
     <dependencies>
         <dependency>

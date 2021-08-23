@@ -1,6 +1,7 @@
 package com.cnc.myboot.runner;
 
 import com.cnc.myboot.properties.ApplicationProperties;
+import com.cnc.myboot.properties.ThreadPoolProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +17,17 @@ public class ExampleApplicationRunner implements ApplicationRunner {
 
     @Autowired
     ApplicationContext context;
+    @Autowired
+    ThreadPoolProperties threadPoolProperties;
+    @Autowired
+    ApplicationProperties applicationProperties;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        System.out.println("application runner has executed...");
+        System.out.println("\n\n");
+        System.out.println(threadPoolProperties);
 
-        try {
-            ApplicationProperties appProperties = context.getBean(ApplicationProperties.class);
-            System.out.println("start printf the application properties...");
-            if (appProperties != null) {
-                log.info("app-name:{}; app-version:{}; app-author:{};", appProperties.getName(), appProperties.getVersion(), appProperties.getAuthor());
-            }
-        } catch (Exception e) {
-        }
+
+        System.out.println(applicationProperties);
     }
 }

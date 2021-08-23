@@ -67,3 +67,18 @@ custom:
         exchange: com.cnc.rabbit.exchange.my-exchange1
         # 以下可选的消息 参数
 
+
+calc:
+  thread-pool:
+    defaults:
+      core: 10
+      max: 10
+      capacity: 20
+    select:
+      core: 10
+      max: 10
+      capacity: 20
+    store:
+      core: 10
+      max: 10
+      capacity: 20

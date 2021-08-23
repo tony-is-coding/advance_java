@@ -12,8 +12,6 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class ExampleApplication {
     public static void main(String[] args) throws Exception {
-        SpringApplication app = new SpringApplication(ExampleApplication.class);
-        app.setBannerMode(Banner.Mode.OFF);
-        app.run(args);
+        SpringApplication.run(ExampleApplication.class, args);
     }
 }

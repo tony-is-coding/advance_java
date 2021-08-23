@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producer implements RabbitTemplate.ReturnCallback {
 
-    @Value("${}:xxx")
-    private static String exchange;
+    //    @Value("${}:xxx")
+    private static String exchange = "ssss";
 
     final RabbitTemplate template;
 

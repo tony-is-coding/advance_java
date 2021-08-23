@@ -4,12 +4,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-@Component
-@RabbitListener(queues = "${}", containerFactory = "rabbitMQListenerFactory")
+//@Component
+//@RabbitListener(queues = "klasjlk", containerFactory = "rabbitMQListenerFactory")
 public class Consumer {
 
-    @RabbitHandler
+//    @RabbitHandler
     public void onMessage() {
-
     }
 }

@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 
-@ConfigurationProperties(prefix = "custom.mq.rabbitmq")
-@Profile("dev")
+//@ConfigurationProperties(prefix = "custom.mq.rabbitmq")
+//@Profile("dev")
 @Component
 public class RabbitMqProperties {
 

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 @ConfigurationProperties(prefix = "app")
 @Component
-@Profile(value = "develop")
 public class ApplicationProperties {
     private String name;
     private String version;
@@ -34,5 +33,15 @@ public class ApplicationProperties {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ApplicationProperties{" +
+                "name='" + name + '\'' +
+                ", version='" + version + '\'' +
+                ", author='" + author + '\'' +
+                '}';
     }
 }
