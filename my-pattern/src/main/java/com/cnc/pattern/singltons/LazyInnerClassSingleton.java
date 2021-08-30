@@ -3,11 +3,23 @@ package com.cnc.pattern.singltons;
 public class LazyInnerClassSingleton {
 
     private static class InstanceHolder {
+        static {
+            System.out.println("inner initialize");
+        }
+
         private static final LazyInnerClassSingleton instance = new LazyInnerClassSingleton();
+    }
+
+    static {
+        System.out.println("outer initialize");
     }
 
     private LazyInnerClassSingleton() {
         System.out.println();
+    }
+
+    public static String getName1() {
+        return "hello world1";
     }
 
     public static LazyInnerClassSingleton getInstance() {
@@ -20,17 +32,6 @@ public class LazyInnerClassSingleton {
     }
 
     public static void main(String[] args) {
-        int totalPage = 400;
-
-        int currentBatch = 0;
-        double currentProgress = 20;
-        final double REPORT_BATCH = 5;
-        final double PERCENT_PER_BATCH = 80 / (totalPage / REPORT_BATCH + 1);
-
-        while (currentProgress < 100) {
-            currentProgress += PERCENT_PER_BATCH;
-            System.out.println("当前进度为: " + currentProgress);
-        }
-
+        System.out.println(LazyInnerClassSingleton.getName1());
     }
 }

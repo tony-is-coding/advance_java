@@ -27,6 +27,7 @@
         <module>boot-testing</module>
         <module>my-dubbo</module>
         <module>my-pattern</module>
+        <module>spring5-core</module>
     </modules>
     <dependencies>
         <dependency>
