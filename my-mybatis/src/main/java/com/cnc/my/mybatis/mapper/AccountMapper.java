@@ -9,5 +9,7 @@ public interface AccountMapper {
 
     Account findByUserId(Integer userId);
 
+    Account findByUserId();
+
     void insert(Account account);
 }

@@ -28,6 +28,8 @@
         <module>my-dubbo</module>
         <module>my-pattern</module>
         <module>spring5-core</module>
+        <module>java_spi</module>
+        <module>openfeign_test</module>
     </modules>
     <dependencies>
         <dependency>
