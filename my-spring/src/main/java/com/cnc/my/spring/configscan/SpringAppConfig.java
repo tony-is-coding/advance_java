@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 
 @Configuration
 @ComponentScan(basePackages = "com.cnc.my.spring")
-@PropertySource("classpath:/properties.properties")
 @EnableAspectJAutoProxy
 public class SpringAppConfig {
 

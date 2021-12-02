@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Primary;
 import java.time.LocalDateTime;
 
 @Configuration
-@ComponentScans(value = {})
 public class BeansConfig {
 
     @Bean

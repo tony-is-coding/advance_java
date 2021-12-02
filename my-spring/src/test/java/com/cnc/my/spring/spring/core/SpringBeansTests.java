@@ -3,7 +3,7 @@ package com.cnc.my.spring.spring.core;
 import com.cnc.my.spring.SpringApplicationConfig;
 import com.cnc.my.spring.beans.ParamGreediestBean;
 import com.cnc.my.spring.beans.TestBeanOne;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
