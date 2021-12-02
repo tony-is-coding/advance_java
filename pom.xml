@@ -9,27 +9,16 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>jvm</module>
-        <module>nio</module>
-        <module>concurrent</module>
-        <module>stringify</module>
-        <module>zookeeper</module>
-        <module>annotation</module>
-        <module>amqp</module>
-        <module>spring-data-jpa-demo</module>
-        <module>spring-beans-basic</module>
-        <module>myspring</module>
-        <module>my-spring-data-accessor</module>
-        <module>my-spring-mvc</module>
-        <module>my-springboot</module>
+        <module>my-amqp</module>
+        <module>my-dubbo</module>
+        <module>my-java</module>
         <module>my-mybatis</module>
         <module>my-mybatis-plus</module>
-        <module>boot-testing</module>
-        <module>my-dubbo</module>
+        <module>my-netty</module>
         <module>my-pattern</module>
-        <module>spring5-core</module>
-        <module>java_spi</module>
-        <module>openfeign_test</module>
+        <module>my-spring</module>
+        <module>my-springboot</module>
+        <module>my-zookeeper</module>
     </modules>
     <dependencies>
         <dependency>
