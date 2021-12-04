@@ -9,15 +9,4 @@ public class Account {
     BigDecimal amount;
     LocalDateTime add_dt;
     LocalDateTime update_dt;
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accountId=" + account_id +
-                ", userId=" + user_id +
-                ", amount=" + amount +
-                ", addDt=" + add_dt +
-                ", updateDt=" + update_dt +
-                '}';
-    }
 }

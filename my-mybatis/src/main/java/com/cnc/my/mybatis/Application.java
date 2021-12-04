@@ -18,8 +18,8 @@ public class Application {
         try {
             String resource = "sql-map-config.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            session = sqlSessionFactory.openSession();
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); // 创建一个 SqlSessionFactory
+            session = sqlSessionFactory.openSession(); // 创建一个 DefaultSqlSession, 重要的: executor 与 configuration
             AccountService accountService = new AccountServiceImpl();
             accountService.setSession(session);
             Account account = accountService.getById(1);
