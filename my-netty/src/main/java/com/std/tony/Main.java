@@ -8,9 +8,7 @@ import io.netty.channel.ChannelPromise;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        ByteBuf bb ;
-        ByteBufHolder holder;
-        ChannelOutboundHandlerAdapter channelOutboundHandlerAdapter;
-        ChannelPromise cp;
+        System.out.println(System.getProperty("os.name"));
+        System.out.println(System.getProperty("os.arch"));
     }
 }

@@ -20,5 +20,4 @@ public class SimpleChatServerInitializer extends ChannelInitializer<SocketChanne
         pipeline.addLast("handler", new SimpleChatServerHandler());
         System.out.println("客户端: " + ch.remoteAddress() + "连接上");
     }
-
 }
