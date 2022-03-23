@@ -22,13 +22,14 @@ public class Sender {
         try {
             Connection connection = Config.getConnection();
             Channel channel = connection.createChannel();
+            channel.basicQos(10);
             channel.addReturnListener((replyCode, replyText, exchange, routingKey, properties, body) -> {
                 log.info("消息未被正确的路由到: " + new String(body));
             });
             AMQP.BasicProperties properties = new AMQP.BasicProperties.Builder()
                     .deliveryMode(2) // 消息持久化
                     .build();
-            channel.basicPublish(exchange, bindingKey, properties, sendMsg);
+            channel.basicPublish(exchange, bindingKey, true, properties, sendMsg);
 
         } catch (IOException | TimeoutException e) {
             log.info("连接错误: " + e.getMessage());

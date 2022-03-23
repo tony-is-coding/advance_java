@@ -40,6 +40,8 @@ public class MyPointcut {
     @Pointcut("execution(public * *(..))")
     public void anyPublic() {
         // 此 pointcut 匹配所有的公共方法
+
+
     }
 
 

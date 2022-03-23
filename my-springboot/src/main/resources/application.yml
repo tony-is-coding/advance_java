@@ -34,6 +34,11 @@ spring:
     port: 5680
     username: guest
     password: guest
+  redis:
+    host: 114.67.81.63
+    port: 6379
+    password: dyn8DUbpzRQvrCxn
+
 
 
 logging:

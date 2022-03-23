@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 //@ConfigurationProperties(prefix = "custom.mq.rabbitmq")
 //@Profile("dev")
-@Component
+//@Component
 public class RabbitMqProperties {
 
     private MetaProperties vacation;

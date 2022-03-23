@@ -4,8 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "app")
-@Component
+//@ConfigurationProperties(prefix = "app")
+//@Component
 public class ApplicationProperties {
     private String name;
     private String version;

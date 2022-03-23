@@ -3,8 +3,8 @@ package com.cnc.myboot.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "calc.thread-pool")
-@Component
+//@ConfigurationProperties(prefix = "calc.thread-pool")
+//@Component
 public class ThreadPoolProperties {
     PoolConfig defaults;
     PoolConfig select;

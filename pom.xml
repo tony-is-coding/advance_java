@@ -19,6 +19,7 @@
         <module>my-spring</module>
         <module>my-springboot</module>
         <module>my-zookeeper</module>
+        <module>my-redission</module>
     </modules>
     <dependencies>
         <dependency>
