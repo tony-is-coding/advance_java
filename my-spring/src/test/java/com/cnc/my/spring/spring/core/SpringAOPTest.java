@@ -11,12 +11,13 @@ public class SpringAOPTest {
     @Test
     public void testSpringAOP() {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
         AspectWrappedBean bean = context.getBean(AspectWrappedBean.class);
         System.out.println("\n\n\n\n");
         bean.noException();
         System.out.println("\n\n\n\n");
         bean.somethingWrong();
+        context.close();
     }
 
 }

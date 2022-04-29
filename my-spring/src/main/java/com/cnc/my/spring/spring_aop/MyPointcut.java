@@ -41,7 +41,6 @@ public class MyPointcut {
     public void anyPublic() {
         // 此 pointcut 匹配所有的公共方法
 
-
     }
 
 

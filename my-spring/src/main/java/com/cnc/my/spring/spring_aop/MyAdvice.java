@@ -27,7 +27,7 @@ public class MyAdvice {
 
     @AfterReturning("com.cnc.my.spring.spring_aop.MyPointcut.publicInPackage()")
     public void afterExecutionReturning() {
-        System.out.println("method has returned....");
+        System.out.println("after method execution  ....");
     }
 //
 //    @After("com.cnc.myspringboot.spring_aop.MyPointcut.publicInPackage()")

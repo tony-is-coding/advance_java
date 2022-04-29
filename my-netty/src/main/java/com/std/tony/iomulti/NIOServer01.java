@@ -90,7 +90,8 @@ public class NIOServer01 {
     }
 
     private void listen() throws IOException {
-        while (true) { // 不断监听
+        while (true) {
+            // 不断监听
             int ready = selector.select();
             if (ready < 0) {
                 continue;

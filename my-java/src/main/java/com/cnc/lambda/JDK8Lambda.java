@@ -8,9 +8,9 @@ import java.util.function.Function;
 public class JDK8Lambda {
 
     public static void main(String[] args) {
-        com.basic.BatchApplier<String> applier = new com.basic.BatchApplier<>();
+        BatchApplier<String> applier = new BatchApplier<>();
         List<String> as = Arrays.asList("1111", "3333", "2222", "0000", "5555", "4444");
-        com.basic.FunctionClass fc = new com.basic.FunctionClass();
+        FunctionClass fc = new FunctionClass();
 
         // 实现接口模式
         applier.batchApply(as, fc::outline);
@@ -25,7 +25,7 @@ public class JDK8Lambda {
     }
 }
 
-class LambdaImpl<T, R> extends com.basic.LambdaHolder<T, R> implements com.basic.FunctionInterface<T> {
+class LambdaImpl<T, R> extends LambdaHolder<T, R> implements FunctionInterface<T> {
 
     public LambdaImpl(Function<? super T, R> function) {
         super(function);
@@ -50,7 +50,7 @@ abstract class LambdaHolder<T, R> {
 }
 
 class BatchApplier<T> {
-    void batchApply(Collection<T> cs, com.basic.FunctionInterface<T> itf) {
+    void batchApply(Collection<T> cs, FunctionInterface<T> itf) {
         cs.forEach(itf::outline);
     }
 }

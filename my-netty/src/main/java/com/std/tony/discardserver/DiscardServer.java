@@ -32,8 +32,6 @@ public class DiscardServer {
                             ch.pipeline().addLast(new DiscardServerHandler());
                         }
                     })
-                    .option(ChannelOption.SO_BACKLOG, 128)
-                    .childOption(ChannelOption.SO_KEEPALIVE, true)
             ;
             // 绑定端口, 监听接收连接
             ChannelFuture future = bootstrap.bind(port).sync();
@@ -50,7 +48,7 @@ public class DiscardServer {
     }
 
     public static void main(String[] args) throws Exception {
-        int port = 8000;
+        int port = 8080;
         new DiscardServer(port).run();
 
     }
