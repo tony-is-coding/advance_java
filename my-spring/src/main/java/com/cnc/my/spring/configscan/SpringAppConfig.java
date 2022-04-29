@@ -10,8 +10,9 @@ import java.time.format.DateTimeFormatter;
 
 @Configuration
 @ComponentScan(basePackages = "com.cnc.my.spring")
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy()
 public class SpringAppConfig {
+
 
     @Bean
     public FormattingConversionService conversionService() {

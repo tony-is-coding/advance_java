@@ -1,9 +1,9 @@
 package com.cnc.my.spring.spring_aop;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class AspectWrappedBean {
+@Service
+public class AspectWrappedBean implements AspectInterface {
     public void noException() {
         System.out.println("anything is normal !!!!");
     }
