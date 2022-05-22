@@ -35,7 +35,7 @@ public class NIOServer02 {
 
         try {
             ssc = ServerSocketChannel.open();
-            ssc.socket().bind(new InetSocketAddress("127.0.0.1", 8888));
+            ssc.socket().bind(new InetSocketAddress("127.0.0.1", 8001));
             ssc.configureBlocking(false);
             initSelectors();
 

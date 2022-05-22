@@ -5,8 +5,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class NIOClient01 {
+    static final AtomicInteger at = new AtomicInteger(1);
+
     public static void main(String[] args) {
         try {
             //发送到8888端口
@@ -28,5 +35,6 @@ public class NIOClient01 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
