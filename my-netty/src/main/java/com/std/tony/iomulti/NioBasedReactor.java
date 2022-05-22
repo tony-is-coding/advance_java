@@ -32,7 +32,7 @@ public class NioBasedReactor {
         this.port = port;
     }
 
-    private void handleRead(SelectionKey key, CountDownLatch latch) {
+    private void handleRead(SelectionKey key) {
         SocketChannel socketChannel = (SocketChannel) key.channel();
         ByteBuffer readBuff = ByteBuffer.allocate(1024);
         try {
@@ -44,27 +44,24 @@ public class NioBasedReactor {
             e.printStackTrace();
         } finally {
             readBuff.clear();
-            latch.countDown();
         }
     }
 
-    private void handleWrite(SelectionKey key, CountDownLatch latch) {
+    private void handleWrite(SelectionKey key) {
         ByteBuffer writeBuff = ByteBuffer.allocate(128);
         try {
             writeBuff.put("this is a response".getBytes());
             writeBuff.flip();
             SocketChannel socketChannel = (SocketChannel) key.channel();
             socketChannel.write(writeBuff);
-            socketChannel.close();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             writeBuff.clear();
-            latch.countDown();
         }
     }
 
-    private void handleAccept(SelectionKey key, CountDownLatch latch) {
+    private void handleAccept(SelectionKey key) {
         ServerSocketChannel ch = (ServerSocketChannel) key.channel();
         try {
             SocketChannel sc = ch.accept();
@@ -73,8 +70,6 @@ public class NioBasedReactor {
             sc.register(subSelector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            latch.countDown();
         }
     }
 
@@ -85,32 +80,24 @@ public class NioBasedReactor {
                 int ready = selector.select(300);
                 if (ready <= 0) continue;
                 final Set<SelectionKey> selectionKeys = selector.selectedKeys();
-                final int size = selectionKeys.size();
-                System.out.println(Thread.currentThread().getName() + "::" + "has " + size + " events");
                 if (selectionKeys.isEmpty()) continue;
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
-                final CountDownLatch latch = new CountDownLatch(size);
                 while (iterator.hasNext()) {
                     final SelectionKey sk = iterator.next();
                     iterator.remove();
                     if (sk.isAcceptable()) {
-                        System.out.println(Thread.currentThread().getName() + "::" + "accept event");
-                        acceptPool.submit(() -> handleAccept(sk, latch));
+                        handleAccept(sk);
                     } else if (sk.isReadable()) {
-                        System.out.println(Thread.currentThread().getName() + "::" + "read event");
-                        readWritePool.submit(() -> handleRead(sk, latch));
+                        handleRead(sk);
                     } else if (sk.isWritable()) {
-                        System.out.println(Thread.currentThread().getName() + "::" + "write event");
-                        readWritePool.submit(() -> handleWrite(sk, latch));
+                        handleWrite(sk);
                     }
                 }
-                latch.await();
-            } catch (IOException | InterruptedException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
     private void listen() throws InterruptedException, IOException {
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);
