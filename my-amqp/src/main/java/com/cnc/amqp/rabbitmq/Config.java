@@ -43,17 +43,18 @@ public class Config {
         try {
             Connection connection = getConnection();
             Channel channel = connection.createChannel();
-//            channel.exchangeDeclare(DLXExchange, BuiltinExchangeType.DIRECT, false);
-//            channel.queueDeclare(DLXQueue, true, false, true, new HashMap<>());
+            // 死信交换器 与 队列声明
+            channel.exchangeDeclare(DLXExchange, BuiltinExchangeType.DIRECT, false);
+            channel.queueDeclare(DLXQueue, true, false, true, new HashMap<>());
+            channel.queueBind(DLXQueue, DLXExchange, DLXBindingKey);
 
-
-            channel.queueDeclare(queue, true, false, false, new HashMap<>());
-//            channel.queueBind(DLXQueue, DLXExchange, DLXBindingKey);
-
+            // 基础交换器 与 队列声明
+            HashMap<String, Object> queueArg = new HashMap<>();
+            queueArg.put("x-dead-letter-exchange",DLXExchange);
+            channel.queueDeclare(queue, true, false, false,queueArg);
             channel.exchangeDeclare(exchange, BuiltinExchangeType.DIRECT, true);
-
-
             channel.queueBind(queue, exchange, bindingKey);
+
             log.info("初始化交换机-队列完成...");
             channel.close();
             connection.close();

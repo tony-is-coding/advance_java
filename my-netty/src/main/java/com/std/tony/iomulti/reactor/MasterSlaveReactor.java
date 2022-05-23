@@ -9,23 +9,23 @@ import java.util.Set;
 import java.util.concurrent.*;
 
 /**
- * com.std.tony.iomulti.reactor - MainAndSubReactorMultiThreadMode
+ * com.std.tony.iomulti.reactor - MasterSlaveReactor
  *
  * @author tony-is-coding
  * @date 2022/5/22 22:10
  */
-public class MainAndSubReactorMultiThreadMode {
+public class MasterSlaveReactor {
     public static void main(String[] args) {
-        new MainReactor(8001).run();
+        new MasterReactor(8001).run();
     }
 }
 
-class MainReactor {
+class MasterReactor {
     private final int port;
-    private SubReactor subReactor;
+    private SlaveReactor slave;
     private Selector selector;
 
-    public MainReactor(int port) {
+    public MasterReactor(int port) {
         this.port = port;
     }
 
@@ -37,8 +37,8 @@ class MainReactor {
             ssc.configureBlocking(false);
             ssc.socket().bind(new InetSocketAddress(port), 1024);
             ssc.register(selector, SelectionKey.OP_ACCEPT);
-            subReactor = new SubReactor();
-            subReactor.run();
+            slave = new SlaveReactor();
+            slave.run();
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -71,15 +71,15 @@ class MainReactor {
 
     private void dispatch(SelectionKey key) {
         if (key.isValid() && key.isAcceptable()) {
-            new MultiAcceptor(key, subReactor).run();
+            new AcceptHandler(key, slave).run();
         }
     }
 }
 
-class SubReactor {
+class SlaveReactor {
     private Selector selector;
 
-    public SubReactor() {
+    public SlaveReactor() {
         try {
             selector = Selector.open();
         } catch (IOException e) {
@@ -90,8 +90,6 @@ class SubReactor {
 
     /**
      * 将主Reactor中的Channel注册到从Reactor中的selector
-     *
-     * @param sc
      */
     public void register(SocketChannel sc) {
         try {
@@ -118,9 +116,9 @@ class SubReactor {
                         try {
                             if (key.isValid()) {
                                 if (key.isReadable())
-                                    new MultiReader(key).run();
+                                    new ReadHandler(key).run();
                                 if (key.isWritable())
-                                    new MultiWriter(key).run();
+                                    new writeHandler(key).run();
                             }
                         } catch (Exception e) {
                             if (key != null) {
@@ -139,23 +137,22 @@ class SubReactor {
 
 }
 
-class MultiAcceptor {
+class AcceptHandler {
 
-    private final SubReactor subReactor;
+    private final SlaveReactor slave;
     private final SelectionKey selectionKey;
 
-    public MultiAcceptor(SelectionKey selectionKey, SubReactor subReactor) {
+    public AcceptHandler(SelectionKey selectionKey, SlaveReactor slave) {
         this.selectionKey = selectionKey;
-        this.subReactor = subReactor;
+        this.slave = slave;
     }
-
     public void run() {
         try {
             ServerSocketChannel ssc = (ServerSocketChannel) selectionKey.channel();
             SocketChannel sc = ssc.accept();
             sc.configureBlocking(false);
             System.out.println("acceptable ...");
-            subReactor.register(sc);
+            slave.register(sc);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -163,15 +160,12 @@ class MultiAcceptor {
     }
 }
 
-class MultiReader {
+class ReadHandler {
     private final SelectionKey selectionKey;
-
-    public MultiReader(SelectionKey selectionKey) {
+    public ReadHandler(SelectionKey selectionKey) {
         this.selectionKey = selectionKey;
     }
-
     public void run() {
-        //使用线程池，异步处理读请求
         final SocketChannel sc = (SocketChannel) selectionKey.channel();
         System.out.println("readable ...");
         ByteBuffer readBuff = ByteBuffer.allocate(1024);
@@ -180,7 +174,6 @@ class MultiReader {
             String msg = new String(readBuff.array(), 0, count);
             System.out.printf("接受到客户端信息: [ %s ] \n", msg);
             readBuff.flip();
-            //处理完读请求，将通道注册为写
             sc.register(selectionKey.selector(), SelectionKey.OP_WRITE);
         } catch (IOException e) {
             e.printStackTrace();
@@ -191,13 +184,11 @@ class MultiReader {
 }
 
 
-class MultiWriter {
+class writeHandler {
     private final SelectionKey selectionKey;
-
-    public MultiWriter(SelectionKey selectionKey) {
+    public writeHandler(SelectionKey selectionKey) {
         this.selectionKey = selectionKey;
     }
-
     public void run() {
         final SocketChannel sc = (SocketChannel) selectionKey.channel();
         System.out.println("writeable ... ");
@@ -206,8 +197,7 @@ class MultiWriter {
             writeBuff.put("this is a response".getBytes());
             writeBuff.flip();
             sc.write(writeBuff);
-            sc.close();
-//            sc.register(selectionKey.selector(), SelectionKey.OP_READ);
+            sc.register(selectionKey.selector(), SelectionKey.OP_READ);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
