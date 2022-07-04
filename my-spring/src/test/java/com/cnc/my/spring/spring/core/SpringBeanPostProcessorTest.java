@@ -12,6 +12,5 @@ public class SpringBeanPostProcessorTest {
     public void testProcessor() {
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
         context.getBean(MyBean.class);
-
     }
 }

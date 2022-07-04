@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -28,7 +29,7 @@ public class NIOClient01 {
             pool.submit(() -> task(latch));
         }
         latch.await();
-        System.out.printf("request completed !! \nsucceed:%d \nfailure: %d \ncost %d ms", succeed.get(), failure.get(), (int) (System.currentTimeMillis() - start));
+        System.out.printf("request 100000 completed !! \nsucceed:%d \nfailure: %d \ncost %d ms", succeed.get(), failure.get(), (int) (System.currentTimeMillis() - start));
     }
 
     public static void task(CountDownLatch latch) {
@@ -40,15 +41,16 @@ public class NIOClient01 {
                 try {
                     OutputStream outputStream = socket.getOutputStream();
                     PrintWriter printWriter = new PrintWriter(outputStream);
-                    printWriter.write("server端你好，我是client-" + at.getAndIncrement());
+                    printWriter.write("server端你好，我是client");
                     printWriter.flush();
                     InputStream inputStream = socket.getInputStream();
                     byte[] readB = new byte[1024];
                     int in = inputStream.read(readB);
                     System.out.println(new String(readB, 0, in));
-//                    succeed.incrementAndGet();
+                    succeed.incrementAndGet();
                 } catch (Exception e) {
-//                    failure.incrementAndGet();
+                    e.printStackTrace();
+                    failure.incrementAndGet();
                 }
             }
             socket.getOutputStream().close();

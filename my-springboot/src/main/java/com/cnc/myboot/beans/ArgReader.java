@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 //@Component
 public class ArgReader {
+
     @Autowired
     public ArgReader(ApplicationArguments arguments) {
         boolean debug = arguments.containsOption("debug");

@@ -21,6 +21,7 @@
         <module>my-zookeeper</module>
         <module>my-redission</module>
         <module>my-java-net</module>
+        <module>my-protobuf</module>
     </modules>
     <dependencies>
         <dependency>

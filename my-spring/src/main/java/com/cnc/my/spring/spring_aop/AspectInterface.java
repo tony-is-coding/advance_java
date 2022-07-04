@@ -6,9 +6,9 @@ package com.cnc.my.spring.spring_aop;
  * @author tony-is-coding
  * @date 2022/4/29 18:12
  */
-public interface AspectInterface {
+/*public interface AspectInterface {
     void noException();
 
     void somethingWrong();
-}
+}*/
 
