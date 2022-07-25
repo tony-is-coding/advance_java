@@ -15,6 +15,4 @@ public class MybatisPlusConfiguration {
         return interceptor;
     }
 
-
-
 }

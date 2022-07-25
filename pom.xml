@@ -22,6 +22,7 @@
         <module>my-redission</module>
         <module>my-java-net</module>
         <module>my-protobuf</module>
+        <module>boot-demo</module>
     </modules>
     <dependencies>
         <dependency>

@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
@@ -31,11 +32,24 @@ public class AccountMapperTest {
     }
 
     @Test
-    public void testTransferSuccess() {
+    public void testUpdateWithoutTransactional() {
         System.out.println("start test transfer method... ");
-        List<Account> accountList = accountDaoService.listByIds(Arrays.asList(2, 3));
-        accountDaoService.transfer(accountList.get(0), accountList.get(1), BigDecimal.valueOf(200));
-        System.out.println("transfer successful...");
+        List<Account> accountList = accountDaoService.listAccounts(Arrays.asList(1, 2));
+        System.out.println(accountDaoService.updateWithoutTransactional(accountList.get(0), accountList.get(1), BigDecimal.valueOf(1000)));
+    }
+
+    @Test
+    public void testRollbackSuccess() throws IOException {
+        System.out.println("start test transfer method... ");
+        List<Account> accountList = accountDaoService.listAccounts(Arrays.asList(1, 2));
+        System.out.println(accountDaoService.transactionRollbackSuccess(accountList.get(0), accountList.get(1), BigDecimal.valueOf(1000)));
+    }
+
+    @Test
+    public void testRollbackFailure() throws IOException {
+        System.out.println("start test transfer method... ");
+        List<Account> accountList = accountDaoService.listAccounts(Arrays.asList(1, 2));
+        System.out.println(accountDaoService.transactionRollbackFailure(accountList.get(0), accountList.get(1), BigDecimal.valueOf(1000)));
     }
 
 }

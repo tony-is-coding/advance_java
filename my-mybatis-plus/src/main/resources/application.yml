@@ -4,7 +4,7 @@ spring:
       username: root
       password: admin123
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC
+      url: jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC&useSSL=false
       type: com.alibaba.druid.pool.DruidDataSource
       #   数据源其他配置
       initialSize: 5

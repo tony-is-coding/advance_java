@@ -1,12 +1,28 @@
 package com.cnc.my.mybatis.entity;
 
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
+/**
+ * @author zhiyong.tan
+ * @date
+ */
+@Data
 public class Account {
-    Integer account_id;
-    Integer user_id;
+    Integer accountId;
+
+    Integer userId;
+
     BigDecimal amount;
-    LocalDateTime add_dt;
-    LocalDateTime update_dt;
+
+    LocalDateTime addDt;
+
+    LocalDateTime updateDt;
 }
+
+

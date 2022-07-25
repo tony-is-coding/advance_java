@@ -8,8 +8,11 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * @author zhiyong.tan
+ */
 @Data
-@TableName(value = "account")
+@TableName(value = "t_account")
 public class Account {
     @TableId(type = IdType.AUTO)
     private Integer accountId;
@@ -17,8 +20,4 @@ public class Account {
     private Integer userId;
 
     private BigDecimal amount;
-
-    private LocalDateTime addDt;
-
-    private LocalDateTime updateDt;
 }

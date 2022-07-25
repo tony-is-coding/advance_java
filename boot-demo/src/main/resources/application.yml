@@ -1,16 +1,11 @@
-app:
-  name: example
-  version: 0.1.1
-  author: tony
-
-
 spring:
   datasource:
     druid:
-      username: root
-      password: admin123
+      username: p2p_dev
+      password: p2p_dev
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC&useSSL=false
+      #      url: jdbc:mysql://114.67.81.63:3307/java_std?serverTimezone=UTC
+      url: jdbc:mysql://127.0.0.1:36000/funds_route?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
       type: com.alibaba.druid.pool.DruidDataSource
       #   数据源其他配置
       initialSize: 5
@@ -29,19 +24,3 @@ spring:
       maxPoolPreparedStatementPerConnectionSize: 20
       useGlobalDataSourceStat: true
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-#  rabbitmq:
-#    host: 114.67.81.63
-#    port: 5680
-#    username: guest
-#    password: guest
-#  redis:
-#    host: 114.67.81.63
-#    port: 6379
-#    password: dyn8DUbpzRQvrCxn
-
-
-
-logging:
-  level:
-    org.framework: info
-  config: classpath:logback-spring.xml

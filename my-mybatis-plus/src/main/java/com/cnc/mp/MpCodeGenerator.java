@@ -1,18 +1,20 @@
 package com.cnc.mp;
 
+/*
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.baomidou.mybatisplus.generator.config.*;
+*/
 
+/**/
 import java.util.Scanner;
 
 public class MpCodeGenerator {
-    /**
+/*    *//**
      * <p>
      * 读取控制台内容
      * </p>
-     */
-    public static String scanner(String tip) {
+     *//*
+  *//*  public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder help = new StringBuilder();
         help.append("请输入").append(tip).append("：");
@@ -26,9 +28,9 @@ public class MpCodeGenerator {
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
 
-    /**
+    *//**//**
      * RUN THIS
-     */
+     *//*
     public static void main(String[] args) {
         // 代码生成器
 
@@ -61,5 +63,5 @@ public class MpCodeGenerator {
         InjectionConfig cfg = new InjectionConfig();
 
 
-    }
+    }*/
 }
