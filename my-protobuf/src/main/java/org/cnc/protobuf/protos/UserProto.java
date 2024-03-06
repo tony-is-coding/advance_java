@@ -19,10 +19,6 @@ public final class UserProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *自身属性
-     * </pre>
-     *
      * <code>int32 id = 1;</code>
      */
     int getId();
@@ -48,70 +44,25 @@ public final class UserProto {
         getNameBytes();
 
     /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    boolean hasNickName();
-    /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    org.cnc.protobuf.protos.UserProto.NickName getNickName();
-    /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    org.cnc.protobuf.protos.UserProto.NickNameOrBuilder getNickNameOrBuilder();
-
-    /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
     java.util.List<java.lang.String>
-        getStrListList();
+        getNamesList();
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
-    int getStrListCount();
+    int getNamesCount();
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
-    java.lang.String getStrList(int index);
+    java.lang.String getNames(int index);
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
     com.google.protobuf.ByteString
-        getStrListBytes(int index);
+        getNamesBytes(int index);
   }
   /**
-   * <pre>
-   *创建一个 User 对象
-   * </pre>
-   *
    * Protobuf type {@code com.wxw.notes.protobuf.proto.User}
    */
   public  static final class User extends
@@ -127,7 +78,7 @@ public final class UserProto {
       id_ = 0;
       code_ = "";
       name_ = "";
-      strList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -172,25 +123,12 @@ public final class UserProto {
               break;
             }
             case 34: {
-              org.cnc.protobuf.protos.UserProto.NickName.Builder subBuilder = null;
-              if (nickName_ != null) {
-                subBuilder = nickName_.toBuilder();
-              }
-              nickName_ = input.readMessage(org.cnc.protobuf.protos.UserProto.NickName.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nickName_);
-                nickName_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                strList_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000010;
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                names_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
               }
-              strList_.add(s);
+              names_.add(s);
               break;
             }
             default: {
@@ -208,8 +146,8 @@ public final class UserProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          strList_ = strList_.getUnmodifiableView();
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          names_ = names_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -232,10 +170,6 @@ public final class UserProto {
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <pre>
-     *自身属性
-     * </pre>
-     *
      * <code>int32 id = 1;</code>
      */
     public int getId() {
@@ -310,82 +244,33 @@ public final class UserProto {
       }
     }
 
-    public static final int NICKNAME_FIELD_NUMBER = 4;
-    private org.cnc.protobuf.protos.UserProto.NickName nickName_;
+    public static final int NAMES_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList names_;
     /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    public boolean hasNickName() {
-      return nickName_ != null;
-    }
-    /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    public org.cnc.protobuf.protos.UserProto.NickName getNickName() {
-      return nickName_ == null ? org.cnc.protobuf.protos.UserProto.NickName.getDefaultInstance() : nickName_;
-    }
-    /**
-     * <pre>
-     * 对象
-     * </pre>
-     *
-     * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-     */
-    public org.cnc.protobuf.protos.UserProto.NickNameOrBuilder getNickNameOrBuilder() {
-      return getNickName();
-    }
-
-    public static final int STRLIST_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList strList_;
-    /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
     public com.google.protobuf.ProtocolStringList
-        getStrListList() {
-      return strList_;
+        getNamesList() {
+      return names_;
     }
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
-    public int getStrListCount() {
-      return strList_.size();
+    public int getNamesCount() {
+      return names_.size();
     }
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
-    public java.lang.String getStrList(int index) {
-      return strList_.get(index);
+    public java.lang.String getNames(int index) {
+      return names_.get(index);
     }
     /**
-     * <pre>
-     *list 引用类型
-     * </pre>
-     *
-     * <code>repeated string strList = 5;</code>
+     * <code>repeated string names = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getStrListBytes(int index) {
-      return strList_.getByteString(index);
+        getNamesBytes(int index) {
+      return names_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -411,11 +296,8 @@ public final class UserProto {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
-      if (nickName_ != null) {
-        output.writeMessage(4, getNickName());
-      }
-      for (int i = 0; i < strList_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, strList_.getRaw(i));
+      for (int i = 0; i < names_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, names_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -436,17 +318,13 @@ public final class UserProto {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
-      if (nickName_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getNickName());
-      }
       {
         int dataSize = 0;
-        for (int i = 0; i < strList_.size(); i++) {
-          dataSize += computeStringSizeNoTag(strList_.getRaw(i));
+        for (int i = 0; i < names_.size(); i++) {
+          dataSize += computeStringSizeNoTag(names_.getRaw(i));
         }
         size += dataSize;
-        size += 1 * getStrListList().size();
+        size += 1 * getNamesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -470,13 +348,8 @@ public final class UserProto {
           .equals(other.getCode());
       result = result && getName()
           .equals(other.getName());
-      result = result && (hasNickName() == other.hasNickName());
-      if (hasNickName()) {
-        result = result && getNickName()
-            .equals(other.getNickName());
-      }
-      result = result && getStrListList()
-          .equals(other.getStrListList());
+      result = result && getNamesList()
+          .equals(other.getNamesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -494,13 +367,9 @@ public final class UserProto {
       hash = (53 * hash) + getCode().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (hasNickName()) {
-        hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
-        hash = (53 * hash) + getNickName().hashCode();
-      }
-      if (getStrListCount() > 0) {
-        hash = (37 * hash) + STRLIST_FIELD_NUMBER;
-        hash = (53 * hash) + getStrListList().hashCode();
+      if (getNamesCount() > 0) {
+        hash = (37 * hash) + NAMES_FIELD_NUMBER;
+        hash = (53 * hash) + getNamesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -598,10 +467,6 @@ public final class UserProto {
       return builder;
     }
     /**
-     * <pre>
-     *创建一个 User 对象
-     * </pre>
-     *
      * Protobuf type {@code com.wxw.notes.protobuf.proto.User}
      */
     public static final class Builder extends
@@ -645,14 +510,8 @@ public final class UserProto {
 
         name_ = "";
 
-        if (nickNameBuilder_ == null) {
-          nickName_ = null;
-        } else {
-          nickName_ = null;
-          nickNameBuilder_ = null;
-        }
-        strList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -684,16 +543,11 @@ public final class UserProto {
         result.id_ = id_;
         result.code_ = code_;
         result.name_ = name_;
-        if (nickNameBuilder_ == null) {
-          result.nickName_ = nickName_;
-        } else {
-          result.nickName_ = nickNameBuilder_.build();
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          names_ = names_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          strList_ = strList_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
-        result.strList_ = strList_;
+        result.names_ = names_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -754,16 +608,13 @@ public final class UserProto {
           name_ = other.name_;
           onChanged();
         }
-        if (other.hasNickName()) {
-          mergeNickName(other.getNickName());
-        }
-        if (!other.strList_.isEmpty()) {
-          if (strList_.isEmpty()) {
-            strList_ = other.strList_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+        if (!other.names_.isEmpty()) {
+          if (names_.isEmpty()) {
+            names_ = other.names_;
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
-            ensureStrListIsMutable();
-            strList_.addAll(other.strList_);
+            ensureNamesIsMutable();
+            names_.addAll(other.names_);
           }
           onChanged();
         }
@@ -799,20 +650,12 @@ public final class UserProto {
 
       private int id_ ;
       /**
-       * <pre>
-       *自身属性
-       * </pre>
-       *
        * <code>int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <pre>
-       *自身属性
-       * </pre>
-       *
        * <code>int32 id = 1;</code>
        */
       public Builder setId(int value) {
@@ -822,10 +665,6 @@ public final class UserProto {
         return this;
       }
       /**
-       * <pre>
-       *自身属性
-       * </pre>
-       *
        * <code>int32 id = 1;</code>
        */
       public Builder clearId() {
@@ -973,285 +812,96 @@ public final class UserProto {
         return this;
       }
 
-      private org.cnc.protobuf.protos.UserProto.NickName nickName_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.cnc.protobuf.protos.UserProto.NickName, org.cnc.protobuf.protos.UserProto.NickName.Builder, org.cnc.protobuf.protos.UserProto.NickNameOrBuilder> nickNameBuilder_;
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public boolean hasNickName() {
-        return nickNameBuilder_ != null || nickName_ != null;
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public org.cnc.protobuf.protos.UserProto.NickName getNickName() {
-        if (nickNameBuilder_ == null) {
-          return nickName_ == null ? org.cnc.protobuf.protos.UserProto.NickName.getDefaultInstance() : nickName_;
-        } else {
-          return nickNameBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public Builder setNickName(org.cnc.protobuf.protos.UserProto.NickName value) {
-        if (nickNameBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          nickName_ = value;
-          onChanged();
-        } else {
-          nickNameBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public Builder setNickName(
-          org.cnc.protobuf.protos.UserProto.NickName.Builder builderForValue) {
-        if (nickNameBuilder_ == null) {
-          nickName_ = builderForValue.build();
-          onChanged();
-        } else {
-          nickNameBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public Builder mergeNickName(org.cnc.protobuf.protos.UserProto.NickName value) {
-        if (nickNameBuilder_ == null) {
-          if (nickName_ != null) {
-            nickName_ =
-              org.cnc.protobuf.protos.UserProto.NickName.newBuilder(nickName_).mergeFrom(value).buildPartial();
-          } else {
-            nickName_ = value;
-          }
-          onChanged();
-        } else {
-          nickNameBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public Builder clearNickName() {
-        if (nickNameBuilder_ == null) {
-          nickName_ = null;
-          onChanged();
-        } else {
-          nickName_ = null;
-          nickNameBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public org.cnc.protobuf.protos.UserProto.NickName.Builder getNickNameBuilder() {
-        
-        onChanged();
-        return getNickNameFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      public org.cnc.protobuf.protos.UserProto.NickNameOrBuilder getNickNameOrBuilder() {
-        if (nickNameBuilder_ != null) {
-          return nickNameBuilder_.getMessageOrBuilder();
-        } else {
-          return nickName_ == null ?
-              org.cnc.protobuf.protos.UserProto.NickName.getDefaultInstance() : nickName_;
-        }
-      }
-      /**
-       * <pre>
-       * 对象
-       * </pre>
-       *
-       * <code>.com.wxw.notes.protobuf.proto.NickName nickName = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.cnc.protobuf.protos.UserProto.NickName, org.cnc.protobuf.protos.UserProto.NickName.Builder, org.cnc.protobuf.protos.UserProto.NickNameOrBuilder> 
-          getNickNameFieldBuilder() {
-        if (nickNameBuilder_ == null) {
-          nickNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.cnc.protobuf.protos.UserProto.NickName, org.cnc.protobuf.protos.UserProto.NickName.Builder, org.cnc.protobuf.protos.UserProto.NickNameOrBuilder>(
-                  getNickName(),
-                  getParentForChildren(),
-                  isClean());
-          nickName_ = null;
-        }
-        return nickNameBuilder_;
-      }
-
-      private com.google.protobuf.LazyStringList strList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureStrListIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          strList_ = new com.google.protobuf.LazyStringArrayList(strList_);
-          bitField0_ |= 0x00000010;
+      private com.google.protobuf.LazyStringList names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNamesIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          names_ = new com.google.protobuf.LazyStringArrayList(names_);
+          bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
       public com.google.protobuf.ProtocolStringList
-          getStrListList() {
-        return strList_.getUnmodifiableView();
+          getNamesList() {
+        return names_.getUnmodifiableView();
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public int getStrListCount() {
-        return strList_.size();
+      public int getNamesCount() {
+        return names_.size();
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public java.lang.String getStrList(int index) {
-        return strList_.get(index);
+      public java.lang.String getNames(int index) {
+        return names_.get(index);
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
       public com.google.protobuf.ByteString
-          getStrListBytes(int index) {
-        return strList_.getByteString(index);
+          getNamesBytes(int index) {
+        return names_.getByteString(index);
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public Builder setStrList(
+      public Builder setNames(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureStrListIsMutable();
-        strList_.set(index, value);
+  ensureNamesIsMutable();
+        names_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public Builder addStrList(
+      public Builder addNames(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureStrListIsMutable();
-        strList_.add(value);
+  ensureNamesIsMutable();
+        names_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public Builder addAllStrList(
+      public Builder addAllNames(
           java.lang.Iterable<java.lang.String> values) {
-        ensureStrListIsMutable();
+        ensureNamesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, strList_);
+            values, names_);
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public Builder clearStrList() {
-        strList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
+      public Builder clearNames() {
+        names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *list 引用类型
-       * </pre>
-       *
-       * <code>repeated string strList = 5;</code>
+       * <code>repeated string names = 4;</code>
        */
-      public Builder addStrListBytes(
+      public Builder addNamesBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureStrListIsMutable();
-        strList_.add(value);
+        ensureNamesIsMutable();
+        names_.add(value);
         onChanged();
         return this;
       }
@@ -1308,574 +958,11 @@ public final class UserProto {
 
   }
 
-  public interface NickNameOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.wxw.notes.protobuf.proto.NickName)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string nickName = 1;</code>
-     */
-    java.lang.String getNickName();
-    /**
-     * <code>string nickName = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNickNameBytes();
-  }
-  /**
-   * <pre>
-   * 定义一个新的Name对象
-   * </pre>
-   *
-   * Protobuf type {@code com.wxw.notes.protobuf.proto.NickName}
-   */
-  public  static final class NickName extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.wxw.notes.protobuf.proto.NickName)
-      NickNameOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use NickName.newBuilder() to construct.
-    private NickName(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private NickName() {
-      nickName_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private NickName(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nickName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.cnc.protobuf.protos.UserProto.internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.cnc.protobuf.protos.UserProto.internal_static_com_wxw_notes_protobuf_proto_NickName_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.cnc.protobuf.protos.UserProto.NickName.class, org.cnc.protobuf.protos.UserProto.NickName.Builder.class);
-    }
-
-    public static final int NICKNAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object nickName_;
-    /**
-     * <code>string nickName = 1;</code>
-     */
-    public java.lang.String getNickName() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        nickName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string nickName = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNickNameBytes() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nickName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNickNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nickName_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNickNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nickName_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof org.cnc.protobuf.protos.UserProto.NickName)) {
-        return super.equals(obj);
-      }
-      org.cnc.protobuf.protos.UserProto.NickName other = (org.cnc.protobuf.protos.UserProto.NickName) obj;
-
-      boolean result = true;
-      result = result && getNickName()
-          .equals(other.getNickName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getNickName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.cnc.protobuf.protos.UserProto.NickName parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.cnc.protobuf.protos.UserProto.NickName prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 定义一个新的Name对象
-     * </pre>
-     *
-     * Protobuf type {@code com.wxw.notes.protobuf.proto.NickName}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.wxw.notes.protobuf.proto.NickName)
-        org.cnc.protobuf.protos.UserProto.NickNameOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.cnc.protobuf.protos.UserProto.internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.cnc.protobuf.protos.UserProto.internal_static_com_wxw_notes_protobuf_proto_NickName_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.cnc.protobuf.protos.UserProto.NickName.class, org.cnc.protobuf.protos.UserProto.NickName.Builder.class);
-      }
-
-      // Construct using org.cnc.protobuf.protos.UserProto.NickName.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        nickName_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.cnc.protobuf.protos.UserProto.internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor;
-      }
-
-      @java.lang.Override
-      public org.cnc.protobuf.protos.UserProto.NickName getDefaultInstanceForType() {
-        return org.cnc.protobuf.protos.UserProto.NickName.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public org.cnc.protobuf.protos.UserProto.NickName build() {
-        org.cnc.protobuf.protos.UserProto.NickName result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public org.cnc.protobuf.protos.UserProto.NickName buildPartial() {
-        org.cnc.protobuf.protos.UserProto.NickName result = new org.cnc.protobuf.protos.UserProto.NickName(this);
-        result.nickName_ = nickName_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.cnc.protobuf.protos.UserProto.NickName) {
-          return mergeFrom((org.cnc.protobuf.protos.UserProto.NickName)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.cnc.protobuf.protos.UserProto.NickName other) {
-        if (other == org.cnc.protobuf.protos.UserProto.NickName.getDefaultInstance()) return this;
-        if (!other.getNickName().isEmpty()) {
-          nickName_ = other.nickName_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.cnc.protobuf.protos.UserProto.NickName parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.cnc.protobuf.protos.UserProto.NickName) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object nickName_ = "";
-      /**
-       * <code>string nickName = 1;</code>
-       */
-      public java.lang.String getNickName() {
-        java.lang.Object ref = nickName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          nickName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string nickName = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNickNameBytes() {
-        java.lang.Object ref = nickName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          nickName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string nickName = 1;</code>
-       */
-      public Builder setNickName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        nickName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string nickName = 1;</code>
-       */
-      public Builder clearNickName() {
-        
-        nickName_ = getDefaultInstance().getNickName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string nickName = 1;</code>
-       */
-      public Builder setNickNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        nickName_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.wxw.notes.protobuf.proto.NickName)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.wxw.notes.protobuf.proto.NickName)
-    private static final org.cnc.protobuf.protos.UserProto.NickName DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.cnc.protobuf.protos.UserProto.NickName();
-    }
-
-    public static org.cnc.protobuf.protos.UserProto.NickName getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<NickName>
-        PARSER = new com.google.protobuf.AbstractParser<NickName>() {
-      @java.lang.Override
-      public NickName parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NickName(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<NickName> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NickName> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public org.cnc.protobuf.protos.UserProto.NickName getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_wxw_notes_protobuf_proto_User_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_wxw_notes_protobuf_proto_User_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_wxw_notes_protobuf_proto_NickName_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1886,12 +973,9 @@ public final class UserProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nUser.proto\022\034com.wxw.notes.protobuf.pro" +
-      "to\"y\n\004User\022\n\n\002id\030\001 \001(\005\022\014\n\004code\030\002 \001(\t\022\014\n\004" +
-      "name\030\003 \001(\t\0228\n\010nickName\030\004 \001(\0132&.com.wxw.n" +
-      "otes.protobuf.proto.NickName\022\017\n\007strList\030" +
-      "\005 \003(\t\"\034\n\010NickName\022\020\n\010nickName\030\001 \001(\tB$\n\027o" +
-      "rg.cnc.protobuf.protosB\tUserProtob\006proto" +
-      "3"
+      "to\"=\n\004User\022\n\n\002id\030\001 \001(\005\022\014\n\004code\030\002 \001(\t\022\014\n\004" +
+      "name\030\003 \001(\t\022\r\n\005names\030\004 \003(\tB$\n\027org.cnc.pro" +
+      "tobuf.protosB\tUserProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1910,13 +994,7 @@ public final class UserProto {
     internal_static_com_wxw_notes_protobuf_proto_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_wxw_notes_protobuf_proto_User_descriptor,
-        new java.lang.String[] { "Id", "Code", "Name", "NickName", "StrList", });
-    internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_wxw_notes_protobuf_proto_NickName_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_wxw_notes_protobuf_proto_NickName_descriptor,
-        new java.lang.String[] { "NickName", });
+        new java.lang.String[] { "Id", "Code", "Name", "Names", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

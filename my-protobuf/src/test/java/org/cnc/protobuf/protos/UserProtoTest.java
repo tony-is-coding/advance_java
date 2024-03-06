@@ -1,6 +1,7 @@
 package org.cnc.protobuf.protos;
 
 
+import com.google.protobuf.ProtocolStringList;
 import org.junit.Test;
 
 /**
@@ -17,11 +18,11 @@ public class UserProtoTest {
         UserProto.User user = builder.setId(10010)
                 .setCode("10010")
                 .setName("tony")
-                .setNickName(
-                        UserProto.NickName.newBuilder()
-                                .setNickName("tony")
-                                .build())
+                .setNames(1, "1")
                 .build();
+
+        ProtocolStringList namesList = user.getNamesList();
+        namesList.forEach(System.out::println);
         System.out.println(user);
 
 

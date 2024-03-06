@@ -11,33 +11,9 @@ option java_package = "org.cnc.protobuf.protos";
 option java_outer_classname = "UserProto";
 
 
-//创建一个 User 对象
 message User {
-
-    //自身属性
     int32 id = 1;
     string code = 2;
     string name = 3;
-    /*// 对象≤
-    NickName nickName = 4;
-
-    //list 引用类型
-    repeated string strList = 5;
-
-    // 定义简单的 Map string
-    map<string, string> map = 6;
-
-    // 定义复杂的 Map 对象
-    map<string, MapVauleObject> mapObject = 7;*/
+    repeated string names=4;
 }
-
-// 定义一个新的Name对象
-message NickName {
-    string nickName = 1;
-}
-
-// 定义 Map 的 value 对象
-//message MapVauleObject {
-//  string code = 1;
-//  string name = 2;
-//}

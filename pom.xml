@@ -23,6 +23,7 @@
         <module>my-java-net</module>
         <module>my-protobuf</module>
         <module>boot-demo</module>
+        <module>rocketmqdemo</module>
     </modules>
     <dependencies>
         <dependency>

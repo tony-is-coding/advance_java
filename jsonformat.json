@@ -1,0 +1,115 @@
+{
+  "fund_project_base_info": {
+    "fund_project_id": 273,
+    "xo_uid": "29089352",
+    "merchant_name": "甘肃银行股份有限公司",
+    "fund_source_type": 0,
+    "project_name": "甘肃-大秦-越风-IRR24（GPS甘肃01）",
+    "partner_type": 2,
+    "is_need_check_credit": 3,
+    "is_repeat_invest": 2,
+    "is_total_amount_match": 2,
+    "is_biopsy": 1,
+    "is_debit_card": 2,
+    "repay_banks": "1",
+    "handle_assets_mode": 1,
+    "business_version": 0,
+    "status": 0,
+    "create_time": 0,
+    "valid": 0,
+    "overdue_up_credit": 0,
+    "fund_source": 79,
+    "loan_banks": "2,3,5,4,7,6",
+    "fund_match_prefer": 0,
+    "not_support_city": "",
+    "loan_card_require_type": 0,
+    "order_type": "5",
+    "loan_require_options": "4",
+    "min_user_age": 23,
+    "max_user_age": 50,
+    "test_group": "0",
+    "credit_category": "0",
+    "not_support_id_card_address": "",
+    "support_account_type": 1,
+    "require_card_consistent": 2,
+    "limit_address": 2,
+    "is_limit_ocr": 2,
+    "front_min_score": 0,
+    "back_min_score": 0,
+    "user_type": 0,
+    "repay_banks_scene": 1,
+    "loan_banks_scene": 1,
+    "business_type": 1,
+    "fund_strategy_id": 266,
+    "is_check_id_card": 1,
+    "id_card_valid_time": 0
+  },
+  "fund_project_operate_rule": {
+    "fund_project_id": 273,
+    "lend_channel": 1,
+    "lend_uids": "276226491513847845",
+    "lend_account_type": 2,
+    "is_need_partner_rc": 1,
+    "is_allow_holidays_match": 1,
+    "is_allow_holidays_lend": 1,
+    "no_allow_match_days": "-1",
+    "no_allow_lend_days": "-1",
+    "is_unite_lend": 2,
+    "loan_contract_create_sequence": 1,
+    "match_time_config": "[{\"startTime\":\"00:02\",\"endTime\":\"23:59\"}]",
+    "lend_time_config": "[{\"startTime\":\"00:02\",\"endTime\":\"23:59\"}]",
+    "is_jump_outside_page": 2,
+    "signing_before_credit": 1,
+    "need_face_detect": 2,
+    "allow_advance_loan": 1,
+    "need_use_add_info": 2,
+    "fund_contracts": [
+      {
+        "contract_id": 123456,
+        "apply_scene": 1,
+        "check_newest": false,
+        "check_fail_deal_mode": 0,
+        "pop_up": false,
+        "all_products": false,
+        "applied_product_ids": "[1,2,3,4,5,6,7,9]",
+        "is_delete": false
+      },
+      {
+        "contract_id": 12345,
+        "apply_scene": 1,
+        "check_newest": false,
+        "check_fail_deal_mode": 0,
+        "pop_up": false,
+        "all_products": false,
+        "applied_product_ids": "[1,2,3,4,5,6,7,10]",
+        "is_delete": false
+      }
+    ]
+  },
+  "fund_project_asset_strategy": [
+    {
+      "asset_strategy_id": 0,
+      "fund_project_id": 273,
+      "product_id": "173",
+      "repay_types": "3",
+      "periods": "ALL",
+      "total_lend_amount": -1,
+      "customer_classify": "1",
+      "borrower_level": "10,5,6,9,7",
+      "product_code": "",
+      "property_of_assets": 3,
+      "required_card_type": 1,
+      "loan_amount_and_type": [
+        {
+          "min_loan_amount": 200000,
+          "max_loan_amount": 5000000,
+          "extend_loan_type": [
+            "1"
+          ],
+          "order": 1
+        }
+      ]
+    }
+  ],
+  "capital_cost_id": 1032
+}
